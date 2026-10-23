@@ -395,20 +395,20 @@ def send_telegram_broadcast(signal):
     if not chat_ids:
         return
 
-    order_emoji = "ðŸŸ¢" if "BUY" in signal['order_type'] else "ðŸ”´"
+    order_emoji = "🟢" if "BUY" in signal['order_type'] else "🔴"
     text = (
-        f"ðŸ† <b>GOLD (XAUUSD) AI SIGNAL GENERATED</b> ðŸ†\n\n"
+        f"🏆 <b>GOLD (XAUUSD) AI SIGNAL GENERATED</b> 🏆\n\n"
         f"<b>Symbol:</b> #XAUUSD (GOLD)\n"
         f"<b>Timeframe:</b> {signal['timeframe']}\n"
         f"<b>Order Type:</b> {order_emoji} <b>{signal['order_type']}</b>\n\n"
-        f"ðŸ“ <b>Order Price:</b> {signal['entry_price']:.2f}\n"
-        f"ðŸ›‘ <b>Stop Loss:</b> {signal['stop_loss']:.2f}\n"
-        f"ðŸŽ¯ <b>Take Profit:</b> {signal['take_profit']:.2f}\n\n"
+        f"📍 <b>Order Price:</b> {signal['entry_price']:.2f}\n"
+        f"🛑 <b>Stop Loss:</b> {signal['stop_loss']:.2f}\n"
+        f"🎯 <b>Take Profit:</b> {signal['take_profit']:.2f}\n\n"
         f"<b>Risk / Reward:</b> 1:{signal['risk_reward']:.2f}\n"
         f"<b>Rule Score:</b> {signal['rule_score']}/100\n"
         f"<b>AI Probability:</b> {signal['model_prob']}%\n\n"
-        f"ðŸ’¡ <b>Analysis Confluence:</b>\n{signal['reasons']}\n\n"
-        f"ðŸ¤– <i>Automated XAUUSD Trading System</i>"
+        f"💡 <b>Analysis Confluence:</b>\n{signal['reasons']}\n\n"
+        f"🤖 <i>Automated XAUUSD Trading System</i>"
     )
 
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
@@ -542,7 +542,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 <body>
     <div class="container">
         <header class="header">
-            <div class="title">ðŸ¥‡ XAUUSD (GOLD) AI SIGNAL ENGINE</div>
+            <div class="title">🥇 XAUUSD (GOLD) AI SIGNAL ENGINE</div>
             <div>
                 <span id="state-badge" class="badge badge-running">STATE: RUNNING</span>
             </div>
@@ -570,10 +570,10 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         <div class="controls">
             <div class="card-title">System & Training Controller</div>
             <div class="btn-group">
-                <button class="btn btn-start" onclick="controlSystem('start')">â–¶ Start Scanner</button>
-                <button class="btn btn-stop" onclick="controlSystem('stop')">â¸ Pause Scanner</button>
-                <button class="btn btn-scan" onclick="triggerScan()">âš¡ Scan Gold Market Now</button>
-                <button class="btn btn-train" onclick="runLiveTraining()">ðŸ§  Trigger AI Live Training</button>
+                <button class="btn btn-start" onclick="controlSystem('start')">▶ Start Scanner</button>
+                <button class="btn btn-stop" onclick="controlSystem('stop')">⏸ Pause Scanner</button>
+                <button class="btn btn-scan" onclick="triggerScan()">⚡ Scan Gold Market Now</button>
+                <button class="btn btn-train" onclick="runLiveTraining()">🧠 Trigger AI Live Training</button>
             </div>
             <div id="training-box" style="display: none;">
                 <div class="training-log" id="training-log">System idle...</div>
@@ -582,7 +582,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 
         <!-- CONFIGURATION SETTINGS PANEL -->
         <div class="controls">
-            <div class="card-title" style="margin-bottom: 14px;">âš™ï¸ API & Telegram Settings Panel</div>
+            <div class="card-title" style="margin-bottom: 14px;">⚙️ API & Telegram Settings Panel</div>
             <div id="save-alert" class="alert-box alert-success">Settings saved successfully!</div>
             
             <div class="form-group">
@@ -600,7 +600,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
                 <textarea id="telegram_chats" class="form-control" placeholder="-1002063197696, -1002110948726"></textarea>
             </div>
 
-            <button class="btn btn-save" onclick="saveConfiguration()">ðŸ’¾ Save & Apply API Settings</button>
+            <button class="btn btn-save" onclick="saveConfiguration()">💾 Save & Apply API Settings</button>
         </div>
 
         <div class="table-card">
@@ -841,8 +841,8 @@ def run_app():
     # Start Web Server
     server = HTTPServer((HOST, PORT), WebAppHandler)
     logger.info("=" * 70)
-    logger.info("ðŸ¥‡ XAUUSD (GOLD) AUTOMATED AI TRADING SIGNAL ENGINE RUNNING")
-    logger.info(f"ðŸ‘‰ Access Live Web Dashboard: http://127.0.0.1:{PORT}")
+    logger.info("🥇 XAUUSD (GOLD) AUTOMATED AI TRADING SIGNAL ENGINE RUNNING")
+    logger.info(f"👉 Access Live Web Dashboard: http://127.0.0.1:{PORT}")
     logger.info("=" * 70)
 
     try:
